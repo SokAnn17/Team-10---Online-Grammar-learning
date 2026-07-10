@@ -1,0 +1,42 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:#F7F9FB;
+}
+
+.wrapper{
+    display:flex;
+    height:100vh;
+}
+
+.sidebar{
+    width:170px;
+    background:white;
+    border-right:1px solid #ddd;
+}
+
+.main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.header{
+    height:90px;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 30px;
+}
+
+.content{
+    flex:1;
+    padding:30px;
+    overflow:auto;
+}
