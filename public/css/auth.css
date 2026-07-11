@@ -81,3 +81,14 @@ body {
     color: #6b7280;
     margin-top: 4px;
 }
+
+.auth-checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.auth-field input.auth-checkbox {
+    width: auto;
+    margin-right: 0;
+}

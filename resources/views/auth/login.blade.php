@@ -45,7 +45,7 @@
         </div>
 
         <div class="auth-field">
-            <label>
+            <label class="auth-checkbox-row">
                 <input type="checkbox" name="remember" class="auth-checkbox"> Remember me
             </label>
         </div>
