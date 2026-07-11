@@ -26,19 +26,19 @@
 
         <ul class="menu">
 
-           <li class="{{ request()->is('/mylearning') ? 'active' : '' }}">
+           <li class="{{ request()->is('home') ? 'active' : '' }}">
                     <a href="/home">Home</a>
                 </li>
 
-                <li class="{{ request()->is('courses') ? 'active' : '' }}">
+                <li class="{{ request()->is('ad-courses') ? 'active' : '' }}">
                     <a href="/ad-courses">Courses</a>
                 </li>
 
-                <li class="{{ request()->is('quizzes') ? 'active' : '' }}">
+                <li class="{{ request()->is('ad-quizzes') ? 'active' : '' }}">
                     <a href="/ad-quizzes">Quizzes</a>
                 </li>
 
-                <li class="{{ request()->is('history') ? 'active' : '' }}">
+                <li class="{{ request()->is('students') ? 'active' : '' }}">
                     <a href="/students">Students</a>
                 </li>
 
@@ -55,10 +55,13 @@
                 <span>Support</span>
             </a>
 
-            <a href="#">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Logout</span>
-            </a>
+            <form method="POST" action="{{ route('logout') }}" style="display:contents;">
+                @csrf
+                <button type="submit" style="all:unset;cursor:pointer;display:contents;">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+            </form>
 
         </div>
 
