@@ -1,0 +1,17 @@
+/* Figma Styles of your File */
+:root {
+  /* Colors */
+  --aaa: linear-gradient(
+    97.54deg,
+    rgba(91, 156, 213, 0.82) 0%,
+    rgba(47, 81, 111, 0.39) 100%
+  );
+
+  /* Fonts */
+  /* Effects */
+}
+/* Figma Color Variables of your File */
+[data-variable-collection-mode="mode-1"] {
+  /* mode-1 */
+  --color: #45464d;
+}
