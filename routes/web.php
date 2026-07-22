@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\LessonController;
+use App\Http\Controllers\Admin\QuizController;
 use App\Http\Controllers\Admin\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -69,9 +70,18 @@ Route::middleware(['auth','admin'])->group(function () {
         return view('admin.ad-myprofile');
     });
 
-    Route::get('/ad-quizzes', function () {
-        return view('admin.ad-quizzes');
+
+    Route::get('/admin/view-student', function () {
+        return view('admin.view-student');
     });
+
+
+    //Quizz
+  Route::get('/ad-quizzes', [QuizController::class,'index'])
+    ->name('admin.quiz');
+
+Route::get('/ad-quizzes/{lesson}', [QuizController::class,'show'])
+    ->name('admin.quiz.show');
 
 });   // ← ONLY ONE closing bracket
 

@@ -1,9 +1,7 @@
 @extends('layouts.admin')
 
 
-
 @section('content')
 
-<h4>Welcome, {{ auth()->user()->full_name }}</h4>
 
 @endsection

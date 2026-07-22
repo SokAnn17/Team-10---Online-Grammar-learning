@@ -101,7 +101,7 @@
 
             <td>
 
-                <a href="#">
+                <a href="/view-student">
                     View Profile
                 </a>
 
