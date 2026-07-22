@@ -29,11 +29,18 @@ class LoginController extends Controller
         // compares the hashed password automatically. It returns true
         // and logs the person in if they match, or false otherwise.
         // The second argument handles the "Remember me" checkbox.
-        if (! Auth::attempt($credentials, $request->boolean('remember'))) {
-            return back()
-                ->withErrors(['email' => 'These credentials do not match our records.'])
-                ->onlyInput('email');
-        }
+        if (! Auth::attempt([
+                'email' => $credentials['email'],
+                'password' => $credentials['password'],
+                'status' => 'Active',
+            ], $request->boolean('remember'))) {
+
+                return back()
+                    ->withErrors([
+                        'email' => 'Invalid credentials or your account is inactive.'
+                    ])
+                    ->onlyInput('email');
+            }
 
         // 3. Regenerate the session ID for security, same reason as in
         // RegisterController — prevents session fixation attacks.

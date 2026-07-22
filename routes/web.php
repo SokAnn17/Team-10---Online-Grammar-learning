@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\LessonController;
+use App\Http\Controllers\Admin\StudentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -55,13 +57,13 @@ Route::middleware(['auth','admin'])->group(function () {
     Route::get('/ad-courses', [CourseController::class, 'index'])
         ->name('ad-courses');
 
-    Route::get('/students', function () {
-        return view('admin.students');
-    });
+    Route::get('/students', [StudentController::class, 'index'])
+        ->name('students');
+        Route::patch('/students/{id}/status', [StudentController::class, 'changeStatus'])
+    ->name('students.status');
 
-   Route::get('/home', function () {
-    return view('admin.home');
-})->name('admin.home');
+    Route::get('/home', [HomeController::class,'index'])
+        ->name('admin.home');
 
     Route::get('/ad-myprofile', function () {
         return view('admin.ad-myprofile');
