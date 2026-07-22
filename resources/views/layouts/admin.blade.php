@@ -90,7 +90,7 @@
 
                 <div class="welcome">
 
-                    <h4>Welcome, Hak</h4>
+                    <h4>Welcome, {{ auth()->user()->full_name }}</h4>
 
                     <small>Keep Learning to Improve</small>
 

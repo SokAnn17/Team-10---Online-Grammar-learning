@@ -59,9 +59,9 @@ Route::middleware(['auth','admin'])->group(function () {
         return view('admin.students');
     });
 
-    Route::get('/home', function () {
-        return view('admin.home');
-    });
+   Route::get('/home', function () {
+    return view('admin.home');
+})->name('admin.home');
 
     Route::get('/ad-myprofile', function () {
         return view('admin.ad-myprofile');

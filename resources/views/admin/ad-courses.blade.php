@@ -28,9 +28,6 @@
 
     <br><br>
 
-    <a href="{{ route('create-lessons.create', $course->course_id) }}">
-        <button>Add Lesson</button>
-    </a>
 
     <hr>
 
