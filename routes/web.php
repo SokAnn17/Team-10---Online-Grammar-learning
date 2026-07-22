@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\CourseController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -42,20 +43,31 @@ Route::middleware('auth')->group(function () {
 });
 
 //Admin routes
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/ad-courses', function () {
-        return view('admin.ad-courses');
-    });
+Route::middleware(['auth','admin'])->group(function () {
+
+    Route::get('/admin/create-course', [CourseController::class, 'create'])
+        ->name('create-course.create');
+
+    Route::post('/admin/ad-courses/store', [CourseController::class, 'store'])
+        ->name('create-course.store');
+
+    Route::get('/ad-courses', [CourseController::class, 'index'])
+        ->name('ad-courses');
+
     Route::get('/students', function () {
         return view('admin.students');
     });
+
     Route::get('/home', function () {
         return view('admin.home');
-    })->name('admin.home');
+    });
+
     Route::get('/ad-myprofile', function () {
         return view('admin.ad-myprofile');
     });
+
     Route::get('/ad-quizzes', function () {
         return view('admin.ad-quizzes');
     });
-});
+
+});   // ← ONLY ONE closing bracket
