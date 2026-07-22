@@ -1,0 +1,337 @@
+/* ==========================
+   ADMIN DASHBOARD (Home page content only)
+   Scoped entirely to resources/views/admin/home.blade.php
+========================== */
+
+.page-heading h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2937;
+}
+.page-heading p {
+    color: #4b5563;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.dashboard-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 24px;
+}
+
+/* ============ Hero ============ */
+.hero {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 44px;
+    box-shadow: 0 1px 3px rgba(16, 24, 40, 0.06);
+}
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+.hero h2 {
+    font-size: 32px;
+    line-height: 1.25;
+    font-weight: 800;
+    margin-bottom: 14px;
+    color: #1f2937;
+}
+.hero h2 span {
+    color: #3b82f6;
+}
+.hero p {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 440px;
+    margin-bottom: 28px;
+}
+
+.hero-stats-inline {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    border-top: 1px solid #f1f2f4;
+}
+.hero-stats-inline div strong {
+    display: block;
+    font-size: 19px;
+    color: #1f2937;
+}
+.hero-stats-inline div span {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* Illustration area: decorative gradient shape behind, image/fallback on top */
+.hero-illustration {
+    position: relative;
+    border-radius: 16px;
+    min-height: 260px;
+    overflow: hidden;
+    isolation: isolate; /* keeps the ::before blob contained to this box */
+}
+.hero-illustration::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background:
+        radial-gradient(circle at 30% 30%, #bfdbfe, transparent 60%),
+        radial-gradient(circle at 75% 70%, #dbeafe, transparent 55%);
+    z-index: -1;
+    filter: blur(2px);
+}
+.hero-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    transition: transform 0.35s ease;
+}
+.hero-illustration:hover img {
+    transform: scale(1.03);
+}
+
+.hero-illustration-fallback {
+    display: none; /* shown via onerror when admin-dashboard.png is missing */
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #eaf2ff, #dbeafe);
+    color: #3b82f6;
+    font-size: 64px;
+}
+
+.hero-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 14px rgba(16, 24, 40, 0.12);
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+.hero-illustration:hover .hero-badge {
+    transform: translateY(-2px);
+}
+.hero-badge i {
+    color: #f59e0b;
+    font-size: 16px;
+}
+.hero-badge strong {
+    display: block;
+    font-size: 12px;
+    color: #1f2937;
+}
+.hero-badge span {
+    color: #9ca3af;
+    font-size: 11px;
+}
+
+/* ============ Stat cards ============ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 1px 3px rgba(16, 24, 40, 0.06);
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+}
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(16, 24, 40, 0.1);
+    border-color: #dbeafe;
+}
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: #dbeafe;
+    color: #2563eb;
+}
+.stat-number {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1f2937;
+    line-height: 1.2;
+}
+.stat-label {
+    font-size: 13px;
+    color: #4b5563;
+}
+
+/* ============ Recent Activity + Quick Actions ============ */
+.lower-grid {
+    display: grid;
+    grid-template-columns: minmax(320px, 1.4fr) minmax(260px, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.panel {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 1px 3px rgba(16, 24, 40, 0.06);
+}
+.panel h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #1f2937;
+}
+.panel-sub {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-bottom: 18px;
+}
+
+.activity-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 10px;
+    margin: 0 -10px;
+    border-bottom: 1px solid #f1f2f4;
+    border-radius: 10px;
+    transition: background 0.15s ease;
+}
+.activity-item:hover {
+    background: #f9fafb;
+}
+.activity-item:last-child {
+    border-bottom: none;
+}
+.activity-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.activity-text strong {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1f2937;
+}
+.activity-text span {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.qa-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1f2937;
+    background: #ffffff;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    text-decoration: none;
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.15s ease;
+}
+.qa-btn:hover {
+    background: #eff6ff;
+    border-color: #dbeafe;
+    transform: translateX(2px);
+}
+.qa-btn i {
+    color: #3b82f6;
+    width: 18px;
+}
+.qa-btn.primary {
+    background: #3b82f6;
+    color: #ffffff;
+    border-color: #3b82f6;
+}
+.qa-btn.primary i {
+    color: #ffffff;
+}
+.qa-btn.primary:hover {
+    background: #2563eb;
+}
+
+/* ============ Responsive ============ */
+/* Tablet: hero and lower panels stack, but stat cards keep reflowing via auto-fit above */
+@media (max-width: 960px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+    .hero-illustration {
+        min-height: 220px;
+    }
+    .lower-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small mobile: tighten padding */
+@media (max-width: 480px) {
+    .hero {
+        padding: 28px;
+    }
+    .panel {
+        padding: 20px;
+    }
+}

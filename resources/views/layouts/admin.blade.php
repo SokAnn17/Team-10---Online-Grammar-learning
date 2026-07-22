@@ -6,6 +6,7 @@
     <title>Admin Page</title>
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin-home.css') }}">
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet"
