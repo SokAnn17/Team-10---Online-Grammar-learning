@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Lesson;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,8 +12,15 @@ public function category()
 {
     return $this->belongsTo(CourseCategory::class, 'category_id', 'category_id');
 }
+
+
+public function lessons()
+{
+    return $this->hasMany(Lesson::class,'course_id','course_id');
+}
+
     protected $table = 'course';
-    protected $primarykey =  'course_id';
+    protected $primaryKey =  'course_id';
     public $timestamps = false;
 
     protected $fillable = [

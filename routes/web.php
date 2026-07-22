@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\LessonController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -71,3 +72,13 @@ Route::middleware(['auth','admin'])->group(function () {
     });
 
 });   // ← ONLY ONE closing bracket
+
+
+//add Lessons
+Route::get('/admin/course/{course_id}/create-lessons',
+    [LessonController::class, 'create'])
+    ->name('create-lessons.create');
+
+Route::post('/admin/course/{course_id}/create-lessons',
+    [LessonController::class, 'store'])
+    ->name('create-lessons.store');
