@@ -2,35 +2,38 @@
 
 @section('content')
 
-<h2>Lessons</h2>
+<h2>Course Quiz Management</h2>
 
 <table border="1" cellpadding="10">
 
-<tr>
-    <th>ID</th>
-    <th>Lesson</th>
-    <th>Action</th>
-</tr>
+    <tr>
+        <th>Course ID</th>
+        <th>Course Title</th>
+        <th>Total Lessons</th>
+        <th>Action</th>
+    </tr>
 
-@foreach($lessons as $lesson)
+    @foreach($courses as $course)
 
-<tr>
+    <tr>
 
-    <td>{{ $lesson->lesson_id }}</td>
+        <td>{{ $course->course_id }}</td>
 
-    <td>{{ $lesson->lesson_title }}</td>
+        <td>{{ $course->title }}</td>
 
-    <td>
+        <td>{{ $course->total_lessons }}</td>
 
-        <a href="{{ route('admin.quiz.show',$lesson->lesson_id) }}">
-            Manage Quiz
-        </a>
+        <td>
 
-    </td>
+            <a href="{{ route('admin.quiz.show', $course->course_id) }}">
+                Manage Quiz
+            </a>
 
-</tr>
+        </td>
 
-@endforeach
+    </tr>
+
+    @endforeach
 
 </table>
 

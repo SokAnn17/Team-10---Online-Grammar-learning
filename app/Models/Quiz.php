@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Model;
 
 class Quiz extends Model
@@ -12,8 +12,8 @@ class Quiz extends Model
 
     public $timestamps = false;
 
-    protected $fillable = [
-        'lesson_id',
+        protected $fillable = [
+        'course_id',
         'quiz_title',
         'description',
         'passing_score',
@@ -21,9 +21,9 @@ class Quiz extends Model
         'status',
     ];
 
-    public function lesson()
+    public function course()
     {
-        return $this->belongsTo(Lesson::class,'lesson_id','lesson_id');
+        return $this->belongsTo(Course::class,'course_id','course_id');
     }
 
     public function questions()

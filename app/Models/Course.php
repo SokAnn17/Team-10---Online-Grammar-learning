@@ -19,6 +19,12 @@ public function lessons()
     return $this->hasMany(Lesson::class,'course_id','course_id');
 }
 
+public function quiz()
+{
+    return $this->hasOne(Quiz::class, 'course_id', 'course_id');
+}
+
+
     protected $table = 'course';
     protected $primaryKey =  'course_id';
     public $timestamps = false;
@@ -33,4 +39,5 @@ public function lessons()
         'cover_image',
 
     ];
+
 }

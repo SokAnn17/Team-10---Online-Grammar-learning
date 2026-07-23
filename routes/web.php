@@ -80,8 +80,14 @@ Route::middleware(['auth','admin'])->group(function () {
   Route::get('/ad-quizzes', [QuizController::class,'index'])
     ->name('admin.quiz');
 
-Route::get('/ad-quizzes/{lesson}', [QuizController::class,'show'])
-    ->name('admin.quiz.show');
+  Route::get('/ad-quizzes/{course}', [QuizController::class, 'show'])
+        ->name('admin.quiz.show');
+  Route::post('/ad-quizzes/{course}', [QuizController::class, 'store'])
+    ->name('admin.quiz.store');
+    Route::put('/ad-quizzes/{quiz}', [QuizController::class, 'update'])
+    ->name('admin.quiz.update');
+    Route::get('/questions/create/{quiz}', [QuestionController::class, 'create'])
+    ->name('admin.question.create');
 
 });   // ← ONLY ONE closing bracket
 
